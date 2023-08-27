@@ -11,7 +11,15 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
-
+  // config/config.default.js
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '127.0.0.1',
+    port: 3306,
+    database: 'monitor',
+    username: 'root',
+    password: '12345678',
+  }
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1692526013132_810';
 
