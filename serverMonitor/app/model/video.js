@@ -9,6 +9,7 @@ module.exports = app => {
     title: { type: STRING(200), allowNull: true, defaultValue: '' },
     img: { type: STRING(200), allowNull: true, defaultValue: '' },
     description: { type: STRING(200), allowNull: true, defaultValue: '' },
+    source: { type: STRING(200), allowNull: true, defaultValue: '' },
     created_time: DATE,
     created_at: DATE,
     updated_at: DATE,

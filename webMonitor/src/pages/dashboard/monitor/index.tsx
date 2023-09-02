@@ -9,7 +9,7 @@ export default class Monitor extends React.Component {
     playing: false, // 视频true播放 false暂停
     playbackRate: 1, // 视频播放倍速
     timeConsuming: 0, // 本页耗时
-    duration: 10, // 视频总时长
+    duration: 10, // 视频总时长 
     controllerTimeConsuming: true, // 本页计时开关 true:计时中   false:计时暂停
   };
   // 操作视频播放组件的对象
@@ -60,6 +60,10 @@ export default class Monitor extends React.Component {
     this.setState({ slideValue: parseFloat(state.playedSeconds) });
   };
 
+
+  componentWillMount(){
+  } 
+
   render(): React.ReactNode {
     const { slideValue, duration, playing, playbackRate, controllerTimeConsuming } = this.state;
     return (
@@ -72,9 +76,9 @@ export default class Monitor extends React.Component {
           playbackRate={playbackRate}
           onDuration={this.handleDuration}
           onProgress={this.handleProgress}
-          url="https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4"
+          url={this.props.location.state.source}
         />
-        <Button onClick={() => this.setState({ playing: !playing })}>
+        <Button onClick={() => {this.setState({ playing: !playing });console.log('111',slideValue)}}>
           {playing ? '暂停' : '播放'}
         </Button>
         <Select

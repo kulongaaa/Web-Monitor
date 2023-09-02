@@ -1,11 +1,13 @@
 import { Col, Row, Avatar, Card } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Link } from 'umi';
+import axios from 'axios';
+import { getVideoList } from './api'
 
 const { Meta } = Card;
 
 const topColResponsiveProps = {
-  xs: 24,
+  xs: 12,
   sm: 12,
   md: 12,
   lg: 12,
@@ -13,19 +15,29 @@ const topColResponsiveProps = {
   style: { marginBottom: 24 },
 };
 
+const cardList = await getVideoList()
+console.log('111', cardList)
+
 const IntroduceRow = () => (
   <Row gutter={24}>
-    <Col {...topColResponsiveProps}>
-      <Card
+    {cardList && cardList.map(e => (
+      <Col {...topColResponsiveProps}>
+        <Card
         style={{ width: 300 }}
         cover={
           <img
             alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            src={e.img}
           />
         }
         actions={[
-          <Link to="/dashboard/monitor">
+          <Link
+          to={
+            {
+              pathname: "/dashboard/monitor",
+              state: {source: e.source}
+            }
+          }>
             <SettingOutlined key="setting" />
           </Link>,
           <EditOutlined key="edit" />,
@@ -34,11 +46,13 @@ const IntroduceRow = () => (
       >
         <Meta
           avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
-          title="Card title"
-          description="This is the description"
+          title={e.title}
+          description={e.description}
         />
       </Card>
-    </Col>
+      </Col>
+      )
+      )}
   </Row>
 );
 
