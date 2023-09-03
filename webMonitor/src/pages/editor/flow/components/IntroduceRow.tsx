@@ -34,7 +34,7 @@ const IntroduceRow = () => (
           <Link
           to={
             {
-              pathname: "/dashboard/monitor",
+              pathname: "/editor/koni",
               state: {source: e.source,videoId: e.video_id}
             }
           }>

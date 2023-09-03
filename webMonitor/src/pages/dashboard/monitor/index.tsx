@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import { GridContent } from '@ant-design/pro-layout';
 import ReactPlayer from 'react-player';
 import React from 'react';
+import { createRecord } from './api'
 export default class Monitor extends React.Component {
   state = {
     slideValue: 0, // 进度条当前取值
@@ -20,6 +21,11 @@ export default class Monitor extends React.Component {
   // 设置视频播放倍速
   handleVideoSpeedChange = (value: string) => {
     this.setState({ playbackRate: value });
+    if(Number(value) > 1) {
+      createRecord({video_id: this.props.location.state.videoId,type: 2,time: this.state.slideValue})
+    } else {
+      createRecord({video_id: this.props.location.state.videoId,type: 3,time: this.state.slideValue})
+    }
   };
   // 视频进度条改变
   handleSliderChange = (value: string) => {
@@ -78,7 +84,7 @@ export default class Monitor extends React.Component {
           onProgress={this.handleProgress}
           url={this.props.location.state.source}
         />
-        <Button onClick={() => {this.setState({ playing: !playing });console.log('111',slideValue)}}>
+        <Button onClick={() => {this.setState({ playing: !playing });createRecord({video_id: this.props.location.state.videoId,type: 1,time: slideValue})}}>
           {playing ? '暂停' : '播放'}
         </Button>
         <Select
@@ -88,7 +94,7 @@ export default class Monitor extends React.Component {
         >
           <Select.Option value={0.5}>0.5x</Select.Option>
           <Select.Option value={0.75}>0.75x</Select.Option>
-          <Select.Option value={1}>倍速</Select.Option>
+          <Select.Option value={1}>1x</Select.Option>
           <Select.Option value={1.25}>1.25x</Select.Option>
           <Select.Option value={1.5}>1.5x</Select.Option>
           <Select.Option value={2}>2x</Select.Option>

@@ -6,8 +6,8 @@ module.exports = app => {
   const Record = app.model.define('record', {
     id: { type: INTEGER(20).UNSIGNED, primaryKey: true, autoIncrement: true },
     video_id: { type: STRING(30), allowNull: true, defaultValue: ''},
-    created_at: DATE,
-    updated_at: DATE,
+    type: { type: INTEGER(20), allowNull: true },
+    time: { type: STRING(30), allowNull: true, defaultValue: ''},
   },{
     tableName: 'record', // 自定义数据表名称
  });

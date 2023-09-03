@@ -295,12 +295,6 @@ export default defineConfig({
           component: './editor/flow',
         },
         {
-          name: 'mind',
-          icon: 'smile',
-          path: '/editor/mind',
-          component: './editor/mind',
-        },
-        {
           name: 'koni',
           icon: 'smile',
           path: '/editor/koni',
