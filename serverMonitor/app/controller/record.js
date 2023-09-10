@@ -11,7 +11,18 @@ class RecordController extends Controller {
   }
   async getRecordList() {
     const { ctx } = this;
-    let result = await this.app.model.Record.findAll()
+    let params = ctx.request.body
+    let param = {}
+    if(params.time && params.time !== ""){
+      param.time = params.time
+    }
+    if(params.type && params.type !== ""){
+      param.type = params.type
+    }
+    console.log('111', param)
+    let result = await this.app.model.Record.findAll({
+      where: param
+    })
     this.ctx.body = {
         data: result,
         // success 请返回 true，

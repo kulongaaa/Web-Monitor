@@ -12,8 +12,14 @@ export async function createRecord(params?: { [key: string]: any }) {
 
 
 /** 新建规则 POST /api/rule */
-export async function getRecordList() {
+export async function getRecordList(
+  params: {
+    time: string;
+    type: number;
+  }
+) {
   return request<API.RuleListItem>('/api/record/getRecordList', {
-    method: 'GET'
+    method: 'POST',
+    data: params
   });
 }

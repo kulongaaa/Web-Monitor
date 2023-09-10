@@ -7,7 +7,7 @@ import type { ProColumns, ActionType } from '@ant-design/pro-table';
 
 import ProTable from '@ant-design/pro-table';
 import { createRecord , getRecordList } from './api'
-import type { TableListItem, TableListPagination } from './data';
+import type { TableListItem, TableListPagination } from './data'; 
 
 
 export default class Monitor extends React.Component {
