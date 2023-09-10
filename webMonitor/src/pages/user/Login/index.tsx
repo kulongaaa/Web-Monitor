@@ -84,8 +84,7 @@ const Login: React.FC = () => {
       </div>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" src="/logo.svg" />}
-          title="Ant Design"
+          title="EG Design"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
             autoLogin: true,
@@ -96,9 +95,7 @@ const Login: React.FC = () => {
               id="pages.login.loginWith"
               defaultMessage="其他登录方式"
             />,
-            <AlipayCircleOutlined key="AlipayCircleOutlined" className={styles.icon} />,
-            <TaobaoCircleOutlined key="TaobaoCircleOutlined" className={styles.icon} />,
-            <WeiboCircleOutlined key="WeiboCircleOutlined" className={styles.icon} />,
+            <AlipayCircleOutlined key="AlipayCircleOutlined" className={styles.icon} />
           ]}
           onFinish={async (values) => {
             await handleSubmit(values as API.LoginParams);
@@ -139,7 +136,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.username.placeholder',
-                  defaultMessage: '用户名: admin or user',
+                  defaultMessage: '用户名',
                 })}
                 rules={[
                   {
@@ -161,7 +158,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
+                  defaultMessage: '密码',
                 })}
                 rules={[
                   {
@@ -278,7 +275,6 @@ const Login: React.FC = () => {
           </div>
         </LoginForm>
       </div>
-      <Footer />
     </div>
   );
 };
