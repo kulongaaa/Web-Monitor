@@ -9,4 +9,6 @@ module.exports = app => {
   router.get('/video/list', controller.video.list);
   router.post('/record/createRecord', controller.record.createRecord);
   router.post('/record/getRecordList', controller.record.getRecordList);
+  router.post('/upload/upload', controller.upload.videoUpload);
+
 };

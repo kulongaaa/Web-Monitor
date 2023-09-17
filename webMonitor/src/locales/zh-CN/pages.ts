@@ -1,5 +1,5 @@
 export default {
-  'pages.layouts.userLayout.title': 'EG Design项目服务于视频社区监控，致力于提供更好的视频---delong',
+  'pages.layouts.userLayout.title': 'Vision Portrait服务于视频影像数据分析与业务增长闭环运营社区  ---delong',
   'pages.login.accountLogin.tab': '账户密码登录',
   'pages.login.accountLogin.errorMessage': '错误的用户名和密码(admin/ant.design)',
   'pages.login.failure': '登录失败，请重试！',

@@ -10,7 +10,11 @@
     "egg": "^3",
     "egg-scripts": "^2",
     "egg-sequelize": "^6.0.0",
-    "mysql2": "^3.6.0"
+    "fs": "0.0.1-security",
+    "mkdirp": "^3.0.1",
+    "moment": "^2.29.4",
+    "mysql2": "^3.6.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "egg-bin": "^5.14.1",
